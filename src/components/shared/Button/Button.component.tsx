@@ -1,0 +1,32 @@
+import { Slot } from "radix-ui"
+
+import { buttonVariants } from "./Button.styles"
+import type { ButtonProps } from "./Button.types"
+import { ButtonSpinner } from "./ButtonSpinner.component"
+import { cn } from "@/lib/utils"
+
+export const Button = ({
+  className,
+  variant,
+  size,
+  loading,
+  disabled,
+  asChild = false,
+  ...props
+}: ButtonProps) => {
+  const Comp = asChild ? Slot.Root : "button"
+
+  return (
+    <Comp
+      data-slot="button"
+      className={cn(buttonVariants({ variant, size, className }))}
+      disabled={disabled || loading}
+      {...props}
+    >
+      <span className="flex items-center justify-center gap-2">
+        {loading && <ButtonSpinner />}
+        {props.children}
+      </span>
+    </Comp>
+  )
+}

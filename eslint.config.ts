@@ -83,6 +83,7 @@ const eslintConfig = defineConfig([
     "build/**",
     "node_modules/**",
     "next-env.d.ts",
+    "**/components/ui/",
   ]),
 ]);
 
