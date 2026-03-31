@@ -18,7 +18,7 @@ export const navMainConfig = (): NavItemModel[] => [
   {
     name: "Archiwum",
     // url: archiveRoute.to,
-    url: "/",
+    url: "/aaa",
     icon: SquareTerminal,
     items: []
   },

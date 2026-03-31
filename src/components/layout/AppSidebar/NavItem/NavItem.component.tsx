@@ -18,7 +18,7 @@ export const NavItem = ({ item }: { item: NavItemModel}) => {
       {isCollapsible ? (
         <SidebarMenuItem>
           <CollapsibleTrigger asChild className="cursor-pointer">
-            <SidebarMenuButton tooltip={item.name} asChild>
+            <SidebarMenuButton tooltip={item.name} asChild isActive={false}>
               {/* TODO: <Link to */}
               <a href={item.url}>
                 {item.icon && <item.icon />}
@@ -46,6 +46,7 @@ export const NavItem = ({ item }: { item: NavItemModel}) => {
         <SidebarMenuItem>
           <SidebarMenuButton tooltip={item.name} asChild
           // isActive={pathname === item.url}
+            isActive={false}
           >
             <a href={item.url}>
               {item.icon && <item.icon />}
