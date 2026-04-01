@@ -6,6 +6,11 @@ import { cn } from "@/lib/utils"
 
 import type { TextFieldOwnProps, TextFieldProps } from "./TextField.types"
 
+const sizeClasses: Record<string, string> = {
+  sm: "h-8 text-base",
+  md: "h-10 text-base",
+}
+
 export const TextField = <T extends boolean = false>({
   id,
   label,
@@ -18,6 +23,7 @@ export const TextField = <T extends boolean = false>({
   inputGroupClassName,
   addons,
   textarea,
+  fieldSize = "md",
   ...props
 }: TextFieldProps<T>) => {
   const helperId = error || helperText ? `${id}-helper` : undefined
@@ -29,8 +35,9 @@ export const TextField = <T extends boolean = false>({
         data-disabled={props.disabled}
         className={cn(
           "[&:has([data-slot=input-group-control]:focus-visible)]:border-ring/70 [&:has([data-slot=input-group-control]:focus-visible)]:ring-0 rounded-md",
+          sizeClasses[fieldSize],
           props.disabled && "bg-muted dark:bg-muted cursor-not-allowed",
-          error && "border-destructive text-destructive has-[[data-slot][aria-invalid=true]]:ring-2",
+          error && "border-destructive has-[[data-slot][aria-invalid=true]]:ring-2",
           inputGroupClassName
         )}
       >

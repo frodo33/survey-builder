@@ -1,5 +1,7 @@
 import type { ChangeEvent, ComponentProps, ReactNode } from "react"
 
+export type TextFieldSize = "sm" | "md"
+
 export type TextFieldOwnProps = {
   id: string
   label?: string
@@ -12,6 +14,7 @@ export type TextFieldOwnProps = {
   inputGroupClassName?: string
   addons?: ReactNode
   textarea?: boolean
+  fieldSize?: TextFieldSize
 }
 
 export type TextFieldProps<T extends boolean = false> = TextFieldOwnProps &

@@ -376,10 +376,46 @@ export default function Page() {
           label={"label"}
           placeholder={"placeholder"}
           value={""}
-          // error="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque? 1"
+          error="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque? 1"
           // helperText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque? 2"
           disabled={false}
           textarea={false}
+          fieldSize={"sm"}
+          addons={(
+            <>
+              <InputGroupAddon align={"inline-start"}><IceCream /></InputGroupAddon>
+              <InputGroupAddon align={"inline-end"}><IceCream /></InputGroupAddon>
+            </>
+          )}
+        />
+
+        <TextField
+          id={"1"}
+          label={"label"}
+          placeholder={"placeholder"}
+          // value={""}
+          error="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque? 1"
+          // helperText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque? 2"
+          disabled={false}
+          textarea={false}
+          addons={(
+            <>
+              <InputGroupAddon align={"inline-start"}><IceCream /></InputGroupAddon>
+              <InputGroupAddon align={"inline-end"}><IceCream /></InputGroupAddon>
+            </>
+          )}
+        />
+
+        <TextField
+          id={"1"}
+          label={"label"}
+          placeholder={"placeholder"}
+          value={""}
+          // error="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque? 1"
+          helperText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque? 2"
+          disabled={false}
+          textarea={false}
+          fieldSize="md"
           addons={(
             <>
               <InputGroupAddon align={"inline-start"}><IceCream /></InputGroupAddon>
