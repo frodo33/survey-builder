@@ -3,23 +3,27 @@
 import { useState } from "react"
 import { IceCream } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { useTheme } from "next-themes"
 
 import { TextField } from "@/components/controls/TextField/TextField.component"
 import { Button } from "@/components/shared/Button/Button.component"
 import { Typography } from "@/components/shared/Typography/Typography.component"
-import { useTheme } from "@/hooks/useTheme"
+// import { useTheme } from "@/hooks/useTheme"
 
 export default function Page() {
   const variants = ["default", "destructive", "outline", "link"] as const
   const sizes = ["default", "sm", "lg", "icon", "icon-sm", "icon-lg"] as const
   const Tvariants = ["h1", "h2", "h3", "p", "small"] as const
   const [value, setValue] = useState("")
-  const { theme, toggleTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
 
   return (
     <>
-      <Button onClick={toggleTheme}>
+      <Button onClick={() => setTheme("dark")} className="mb-4">
                   dark mode
+      </Button>
+      <Button onClick={() => setTheme("light")}>
+                  light mode
       </Button>
       <div className="space-y-12 p-8">
         <h1 className="text-2xl font-bold">Button Playground</h1>
@@ -326,7 +330,7 @@ export default function Page() {
       </div>
 
       <div className={"grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"}>
-        <div className="group border-border bg-card shadow-card hover:shadow-elevated hover:border-primary/20 animate-fade-in relative rounded-xl border p-5 transition-all duration-300">
+        <div className="group border-border bg-card shadow-card hover:shadow-elevated hover:border-primary/20 animate-in fade-in relative rounded-xl border p-5 transition-opacity duration-300">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0 flex-1">
               <div className="mb-1.5 flex items-center gap-2">

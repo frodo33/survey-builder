@@ -1,12 +1,11 @@
-import "./../globals.css";
+import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google"
-import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { ThemeProvider } from "next-themes";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { routing } from "@/lib/i18n/routing";
 
 export const fontSans = Inter({
   subsets: ["latin"],
@@ -28,10 +27,6 @@ export const metadata: Metadata = {
 
 export const languages = ["en", "pl"] as const;
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
 export default async function RootLayout({
   children,
   params,
@@ -40,21 +35,19 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>
 }>) {
   const { locale } = await params;
-
-  if (!routing.locales.includes(locale as any)) {
-    notFound();
-  }
-
   // Pobiera messages server-side — przekazuje do klienta tylko to co potrzeba
   const messages = await getMessages();
   return (
     <html
       lang={locale}
+      suppressHydrationWarning
       className={`${fontSans.variable} ${fontMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={messages}>
-          <TooltipProvider>{children}</TooltipProvider>
+          <ThemeProvider attribute="class">
+            <TooltipProvider>{children}</TooltipProvider>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

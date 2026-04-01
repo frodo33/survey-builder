@@ -1,9 +1,10 @@
 import { Slot } from "radix-ui"
 
+import { cn } from "@/lib/utils"
+
 import { buttonVariants } from "./Button.styles"
 import type { ButtonProps } from "./Button.types"
 import { ButtonSpinner } from "./ButtonSpinner.component"
-import { cn } from "@/lib/utils"
 
 export const Button = ({
   className,
