@@ -1,9 +1,10 @@
 import type { ComponentProps } from "react"
 
-import type { TextFieldOwnProps, TextFieldProps } from "./TextField.types"
 import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/shared/Field/Field.component"
 import { InputGroup, InputGroupInput, InputGroupTextarea } from "@/components/ui/input-group"
 import { cn } from "@/lib/utils"
+
+import type { TextFieldOwnProps, TextFieldProps } from "./TextField.types"
 
 export const TextField = <T extends boolean = false>({
   id,
@@ -27,9 +28,9 @@ export const TextField = <T extends boolean = false>({
       <InputGroup
         data-disabled={props.disabled}
         className={cn(
-          "[&:has([data-slot=input-group-control]:focus-visible)]:border-ring/70 [&:has([data-slot=input-group-control]:focus-visible)]:ring-0",
+          "[&:has([data-slot=input-group-control]:focus-visible)]:border-ring/70 [&:has([data-slot=input-group-control]:focus-visible)]:ring-0 rounded-md",
           props.disabled && "bg-muted dark:bg-muted cursor-not-allowed",
-          error && "border-destructive text-destructive",
+          error && "border-destructive text-destructive has-[[data-slot][aria-invalid=true]]:ring-2",
           inputGroupClassName
         )}
       >

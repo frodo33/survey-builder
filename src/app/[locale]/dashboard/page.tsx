@@ -8,6 +8,7 @@ import { useTheme } from "next-themes"
 import { TextField } from "@/components/controls/TextField/TextField.component"
 import { Button } from "@/components/shared/Button/Button.component"
 import { Typography } from "@/components/shared/Typography/Typography.component"
+import { InputGroupAddon } from "@/components/ui/input-group"
 // import { useTheme } from "@/hooks/useTheme"
 
 export default function Page() {
@@ -369,72 +370,50 @@ export default function Page() {
         </div>
       </div>
 
-      {/* <div className="space-y-12 p-8">
-        <h1 className="text-2xl font-bold">Typography Playground</h1>
+      <div className="m-12 max-w-100 flex-col space-y-4">
+        <TextField
+          id={"1"}
+          label={"label"}
+          placeholder={"placeholder"}
+          value={""}
+          // error="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque? 1"
+          // helperText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque? 2"
+          disabled={false}
+          textarea={false}
+          addons={(
+            <>
+              <InputGroupAddon align={"inline-start"}><IceCream /></InputGroupAddon>
+              <InputGroupAddon align={"inline-end"}><IceCream /></InputGroupAddon>
+            </>
+          )}
+        />
 
-        {Tvariants.map((variant) => (
-          <div key={variant} className="space-y-2">
-            <Typography variant={variant} className="text-primary">
-              {variant} variant
-            </Typography>
+        <TextField
+          id={"2"}
+          label={"label"}
+          placeholder={"placeholder"}
+          value={""}
+          // error="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque? 1"
+          helperText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque? 2"
+          disabled={true}
+          textarea={true}
+          inputGroupClassName="flex flex-row"
+          addons={(
+            <>
+              {/* <InputGroupAddon align={"block-start"}><IceCream /></InputGroupAddon> */}
+              {/* <InputGroupAddon align={"inline-end"}><IceCream /></InputGroupAddon> */}
+            </>
+          )}
+        />
+      </div>
 
-            <Typography variant={variant} as="span" className="text-secondary">
-              {variant} rendered as &lt;span&gt;
-            </Typography>
-
-            <Typography variant={variant} as="div" className="bg-gray-100 p-2">
-              {variant} rendered as &lt;div&gt; with extra classes
-            </Typography>
-          </div>
-        ))}
-      </div> */}
-      
-      {/* <div className="space-y-12 p-8">
-        <h1 className="text-2xl font-bold">TextField Playground</h1>
-
-        <div className="space-y-2">
-          <TextField
-            label="normal"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            placeholder="Type here..."
-          />
-        </div>
-
-        <div className="space-y-2">
-          <TextField label="disabled" value="Cannot type" disabled />
-        </div>
-
-        <div className="space-y-2">
-          <TextField
-            label="Error"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            placeholder="Something went wrong"
-            error="Something went wrong"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <TextField
-            label="with icon"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            placeholder="Search..."
-            addons={<span className="material-icons">search</span>}
-          />
-        </div>
-
-        <div className="space-y-2">
-          <TextField
-            label="Custom Styles"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            placeholder="Custom bg"
-            className="border-yellow-400 bg-yellow-50"
-          />
-        </div>
-      </div> */}
+      <div className="flex-col space-y-4">
+        <Typography variant="h1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque?</Typography>
+        <Typography variant="h2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque?</Typography>
+        <Typography variant="h3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque?</Typography>
+        <Typography variant="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque?</Typography>
+        <Typography variant="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, doloremque?</Typography>
+      </div>
     </>
   )
 }
