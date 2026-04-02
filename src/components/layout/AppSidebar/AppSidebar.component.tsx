@@ -3,16 +3,21 @@
 import type { ComponentProps } from "react"
 import { ChevronLeft } from "lucide-react"
 
-import { NavHeader } from "./NavHeader/NavHeader.component"
-import { NavMain } from "./NavMain/NavMain.component"
 import { Separator } from "@/components/ui/separator"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar"
+
+import { NavHeader } from "./NavHeader/NavHeader.component"
+import { NavMain } from "./NavMain/NavMain.component"
 
 export const AppSidebar = ({ ...props }: ComponentProps<typeof Sidebar>) => {
   const { toggleSidebar } = useSidebar()
 
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar
+      className="group-data-[side=left]:border-accent group-data-[side=left]:border-r"
+      collapsible="icon"
+      {...props}
+    >
       <SidebarHeader>
         <NavHeader />
       </SidebarHeader>
