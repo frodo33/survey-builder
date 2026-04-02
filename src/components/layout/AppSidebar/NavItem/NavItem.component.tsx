@@ -1,9 +1,9 @@
-// import { useRouterState } from "@tanstack/react-router"
-import { ChevronRight } from "lucide-react"
+import Link from "next/link"
+
+import { SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
+import { cn } from "@/lib/utils"
 
 import type { NavItemModel } from "../NavMain/NavMain.config"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import { SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from "@/components/ui/sidebar"
 
 export const NavItem = ({ item }: { item: NavItemModel}) => {
   const isCollapsible = item?.items && item.items.length > 0
@@ -11,51 +11,24 @@ export const NavItem = ({ item }: { item: NavItemModel}) => {
   // const { pathname } = usePath
 
   return (
-    <Collapsible
-      asChild
-      className="group/collapsible"
-    >
-      {isCollapsible ? (
-        <SidebarMenuItem>
-          <CollapsibleTrigger asChild className="cursor-pointer">
-            <SidebarMenuButton tooltip={item.name} asChild isActive={false}>
-              {/* TODO: <Link to */}
-              <a href={item.url}>
-                {item.icon && <item.icon />}
-                <span>{item.name}</span>
-                {isCollapsible ? <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" /> : null}
-              </a>
-            </SidebarMenuButton>
-          </CollapsibleTrigger>
-
-          <CollapsibleContent>
-            <SidebarMenuSub>
-              {item.items?.map((subItem) => (
-                <SidebarMenuSubItem key={subItem.name}>
-                  <SidebarMenuSubButton asChild>
-                    <a href={subItem.url}>
-                      <span>{subItem.name}</span>
-                    </a>
-                  </SidebarMenuSubButton>
-                </SidebarMenuSubItem>
-              ))}
-            </SidebarMenuSub>
-          </CollapsibleContent>
-        </SidebarMenuItem>
-      ) : (
-        <SidebarMenuItem>
-          <SidebarMenuButton tooltip={item.name} asChild
-          // isActive={pathname === item.url}
-            isActive={false}
-          >
-            <a href={item.url}>
-              {item.icon && <item.icon />}
-              <span>{item.name}</span>
-              {isCollapsible ? <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" /> : null}
-            </a>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
-      )}
-    </Collapsible>
+    <SidebarMenuItem>
+      <SidebarMenuButton
+        tooltip={item.name}
+        asChild
+        size={"lg"}
+        className={cn(
+          "text-base text-sidebar-accent-foreground font-medium [&_svg]:size-5",
+          "hover:bg-sidebar-accent/70 hover:text-sidebar-accent-foreground dark:hover:bg-sidebar-accent/30",
+          "data-[active=true]:bg-sidebar-accent/70 dark:data-[active=true]:bg-sidebar-accent/30 data-[active=true]:text-sidebar-accent-foreground",
+        )}
+      >
+        <Link href={item.url} className="flex w-full items-center gap-3">
+          <span className="flex aspect-square size-8 items-center justify-center rounded-sm">
+            {item.icon && <item.icon />}
+          </span>
+          <span className="truncate">{item.name}</span>
+        </Link>
+      </SidebarMenuButton>
+    </SidebarMenuItem>
   )
 }
