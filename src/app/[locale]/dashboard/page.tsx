@@ -51,6 +51,15 @@ export default function Page() {
 
           <Button
             variant="default"
+            size="lg"
+            loading={false}
+            disabled={false}
+          >
+            Default
+          </Button>
+
+          <Button
+            variant="default"
             size="default"
             loading={true}
             disabled={false}

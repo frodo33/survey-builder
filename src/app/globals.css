@@ -1,7 +1,21 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+/* @import "shadcn/tailwind.css"; */
 
 @custom-variant dark (&:is(.dark *));
+
+@custom-variant data-open (&[data-state=open], [data-state=open] &);
+@custom-variant data-closed (&[data-state=closed], [data-state=closed] &);
+@custom-variant data-checked (&[data-state=checked], [data-state=checked] &);
+@custom-variant data-unchecked (&[data-state=unchecked], [data-state=unchecked] &);
+@custom-variant data-active (&[data-state=active], [data-state=active] &);
+@custom-variant data-inactive (&[data-state=inactive], [data-state=inactive] &);
+@custom-variant data-on (&[data-state=on], [data-state=on] &);
+@custom-variant data-off (&[data-state=off], [data-state=off] &);
+@custom-variant data-selected (&[data-state=selected], [data-state=selected] &);
+@custom-variant data-disabled (&[data-disabled], [data-disabled] &);
+@custom-variant data-highlighted (&[data-highlighted], [data-highlighted] &);
+@custom-variant data-placeholder (&[data-placeholder], [data-placeholder] &);
 
 @theme inline {
   --color-background: var(--background);
@@ -141,7 +155,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-sidebar text-foreground;
   }
 
   html {
@@ -162,5 +176,30 @@
 
   .bg-primary-gradient:active {
     filter: brightness(0.95);
+  }
+}
+
+@layer utilities {
+  .scrollbar-subtle {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(0.6 0 0 / 0.1) transparent;
+  }
+
+  .scrollbar-subtle::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-subtle::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-subtle::-webkit-scrollbar-thumb {
+    background: oklch(0.6 0 0 / 0.1);
+    border-radius: 999px;
+  }
+
+  .scrollbar-subtle:hover::-webkit-scrollbar-thumb {
+    background: oklch(0.6 0 0 / 0.2);
   }
 }

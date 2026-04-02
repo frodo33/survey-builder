@@ -1,5 +1,6 @@
 import type { ReactNode } from "react"
 
+import { AppHeader } from "@/components/layout/AppHeader/AppHeader.component"
 import { AppSidebar } from "@/components/layout/AppSidebar/AppSidebar.component"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 
@@ -11,8 +12,13 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset>
-        {children}
+      <SidebarInset className="bg-sidebar mx-auto max-w-7xl">
+        <div className="bg-sidebar absolute flex h-full w-full flex-1 flex-col overflow-y-hidden">
+          <AppHeader />
+          <div className="bg-background scrollbar-subtle mx-4 mb-4 flex flex-1 flex-col overflow-scroll rounded-lg p-4">
+            {children}
+          </div>  
+        </div>
       </SidebarInset>
     </SidebarProvider>
   )
