@@ -1,6 +1,5 @@
-import Link from "next/link"
-
 import { SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
+import { Link } from "@/lib/i18n/navigation"
 import { cn } from "@/lib/utils"
 
 import type { NavItemModel } from "../NavMain/NavMain.config"

@@ -21,7 +21,7 @@ export const buttonVariants = cva(
           "focus-visible:ring-2 focus-visible:ring-destructive/30",
         outline:
           "border border-border/80 text-foreground " +
-          "hover:bg-white/10 hover:backdrop-blur-sm shadow-md transition-all duration-150 " +
+          "hover:bg-accent/40 hover:backdrop-blur-sm shadow-md transition-all duration-150 " +
           "focus-visible:ring-2 focus-visible:ring-primary/30",
         link:
           "text-foreground underline-offset-4 " +
@@ -36,6 +36,12 @@ export const buttonVariants = cva(
         "icon-lg": "size-10",
       },
     },
+    compoundVariants: [
+      {
+        variant: "link",
+        className: "h-auto p-0",
+      },
+    ],
     defaultVariants: {
       variant: "default",
       size: "default",

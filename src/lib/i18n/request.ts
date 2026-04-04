@@ -1,22 +1,20 @@
-import { getRequestConfig } from "next-intl/server"
+import { getRequestConfig } from "next-intl/server";
 
-import { en } from "./en";
-import { routing, isValidLocale, type Locale } from "./routing";
+import type { Locale } from "./routing";
+import { routing } from "./routing";
 
-const messages: Record<Locale, typeof en> = {
-  en
-};
+export default getRequestConfig(async ({ requestLocale }) => {
+  const locale = await requestLocale;
 
-export default getRequestConfig(async ({ requestLocale }: { requestLocale: Promise<string | undefined> }) => {
-  const requested = await requestLocale;
+  const resolvedLocale =
+    locale && routing.locales.includes(locale as Locale)
+      ? (locale as Locale)
+      : (routing.defaultLocale as Locale);
 
-  const locale =
-    requested && isValidLocale(requested)
-      ? requested
-      : routing.defaultLocale;
+  const messages = (await import(`./locales/${resolvedLocale}.ts`)).default;
 
   return {
-    locale,
-    messages: messages[locale]
+    locale: resolvedLocale,
+    messages
   };
 });

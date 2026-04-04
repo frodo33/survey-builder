@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { IceCream } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useTheme } from "next-themes"
@@ -18,12 +18,20 @@ export default function Page() {
   const [value, setValue] = useState("")
   const { theme, setTheme } = useTheme()
 
+  useEffect(() => {
+    console.log("mounted");
+  }, []);
+
   return (
     <>
       <Button onClick={() => setTheme("dark")} className="mb-4">
                   dark mode
       </Button>
       <Button onClick={() => setTheme("light")}>
+                  light mode
+      </Button>
+
+      <Button onClick={() => console.log("CHUHJCHUCHUCJ")}>
                   light mode
       </Button>
       <div className="space-y-12 p-8">
@@ -360,6 +368,44 @@ export default function Page() {
         </div>
 
         <div className="group border-border bg-card shadow-card hover:shadow-elevated hover:border-primary/20 animate-fade-in relative rounded-xl border p-5 transition-all duration-300">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0 flex-1">
+              <div className="mb-1.5 flex items-center gap-2">
+                <h3 className="text-card-foreground truncate text-sm font-semibold">Employee Engagement Survey</h3>
+                {/* <Badge variant="outline" className={cn("text-[10px] px-1.5 py-0 font-medium border", status.className)}>
+                {status.label}
+              </Badge> */}
+              </div>
+              <p className="text-muted-foreground mb-3 line-clamp-2 text-xs">Annual employee satisfaction and engagement assessment</p>
+              <div className="text-muted-foreground flex items-center gap-4 text-xs">
+                <span>2 questions</span>
+                <span>87 responses</span>
+                <span>Updated 2024-03-03</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="group border-border bg-popover shadow-card hover:shadow-elevated hover:border-primary/20 animate-fade-in relative rounded-xl border p-5 transition-all duration-300">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0 flex-1">
+              <div className="mb-1.5 flex items-center gap-2">
+                <h3 className="text-card-foreground truncate text-sm font-semibold">Employee Engagement Survey</h3>
+                {/* <Badge variant="outline" className={cn("text-[10px] px-1.5 py-0 font-medium border", status.className)}>
+                {status.label}
+              </Badge> */}
+              </div>
+              <p className="text-muted-foreground mb-3 line-clamp-2 text-xs">Annual employee satisfaction and engagement assessment</p>
+              <div className="text-muted-foreground flex items-center gap-4 text-xs">
+                <span>2 questions</span>
+                <span>87 responses</span>
+                <span>Updated 2024-03-03</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="group border-border bg-popover shadow-card hover:shadow-elevated hover:border-primary/20 animate-fade-in relative rounded-xl border p-5 transition-all duration-300">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0 flex-1">
               <div className="mb-1.5 flex items-center gap-2">
