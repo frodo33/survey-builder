@@ -68,7 +68,8 @@ export default function LoginForm() {
             )}
           />
 
-          <Button
+          {/* TODO */}
+          {/* <Button
             asChild
             variant="link"
             className="text-muted-foreground mt-1 ml-auto text-xs"
@@ -76,7 +77,7 @@ export default function LoginForm() {
             <Link href={ROUTES.PUBLIC.FORGOT_PASSWORD}>
               {t("auth.login.form.forgotPassword")}
             </Link>
-          </Button>
+          </Button> */}
         </div>
 
         <Button
