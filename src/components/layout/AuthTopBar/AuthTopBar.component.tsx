@@ -5,6 +5,7 @@ import { useLocale } from "next-intl";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/shared/Button/Button.component";
+import { LanguagePicker } from "@/components/shared/LanguagePicker/LanguagePicker.component";
 import { Typography } from "@/components/shared/Typography/Typography.component";
 import {
   DropdownMenu,
@@ -70,33 +71,7 @@ export function AuthTopBar() {
       </div>
 
       <div className="flex">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="flex items-center gap-2 border-none shadow-none">
-              <div aria-hidden="true" className="select-none">{currentLang.flag}</div>
-              <div className="hidden items-center gap-2 lg:flex">
-                {currentLang.label}
-                <ChevronDown className="h-3 w-3 opacity-50" />
-              </div>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="min-w-[180px]">
-            <DropdownMenuLabel>Language</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuRadioGroup
-              value={locale}
-              onValueChange={(v) => {
-                console.log("v", v)
-                handleLanguageChange(v)
-              }}>
-              {languagesConfig.map(lang => (
-                <DropdownMenuRadioItem key={lang.code} value={lang.code}>
-                  {lang.flag} {lang.label}
-                </DropdownMenuRadioItem>
-              ))}
-            </DropdownMenuRadioGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <LanguagePicker />
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
