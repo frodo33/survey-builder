@@ -1,5 +1,11 @@
 {
   "languagePicker": {
     "label": "Język"
+  },
+  "themePicker": {
+    "label": "Motyw",
+    "light": "Jasny",
+    "dark": "Ciemny",
+    "system": "System"
   }
 }
