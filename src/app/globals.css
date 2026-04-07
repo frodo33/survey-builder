@@ -163,6 +163,10 @@
   html {
     @apply font-sans;
   }
+
+  input, textarea, select {
+    @apply text-base md:text-sm;
+  }
 }
 
 @layer components {
