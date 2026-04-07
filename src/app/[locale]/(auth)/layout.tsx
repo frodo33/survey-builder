@@ -1,31 +1,30 @@
-"use client"
-import { useState } from "react";
-// import { Link } from 'react-router-dom';
-import { FileText, Eye, EyeOff, Mail, Lock } from "lucide-react";
+import type { ReactNode } from "react";
+import { FileText } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { AuthTopBar } from "@/components/layout/AuthTopBar/AuthTopBar.component";
+import { Typography } from "@/components/shared/Typography/Typography.component";
 
-// import { Button } from "@/components/ui/button";
-// import { Input } from "@/components/ui/input";
-// import { useToast } from '@/hooks/use-toast';
-// import { motion } from 'framer-motion';
-
-export default function AuthLayout({ children }) {
+export default function AuthLayout({ children }: { children: ReactNode }) {
+  const t = useTranslations()
 
   return (
-    <div className="bg-background flex min-h-screen">
+    <div className="bg-background flex min-h-dvh">
       <AuthTopBar />
 
       <div className="bg-primary relative hidden items-center justify-center overflow-hidden lg:flex lg:w-1/2">
-        <div className="from-primary via-primary/90 to-primary/70 absolute inset-0 bg-gradient-to-br" />
         <div className="relative z-10 max-w-md px-8 text-center">
-          <div className="bg-primary-foreground/20 mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-2xl backdrop-blur-sm">
+          <div className="bg-primary-foreground/20 mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-2xl">
             <FileText className="text-primary-foreground h-8 w-8" />
           </div>
-          <h2 className="text-primary-foreground mb-4 text-3xl font-bold">Welcome back to FormFlow</h2>
-          <p className="text-primary-foreground/70 text-base leading-relaxed">
-            Build beautiful surveys, collect responses, and analyze data — all in one place.
-          </p>
+
+          <Typography variant="h1" as="h2" className="text-primary-foreground mb-4">
+            {t("auth.login.marketing.title")}
+          </Typography>
+
+          <Typography variant="p" className="text-secondary text-base">
+            {t("auth.login.marketing.subtitle")}
+          </Typography>
         </div>
 
         <div className="bg-primary-foreground/5 absolute -bottom-20 -left-20 h-64 w-64 rounded-full" />
