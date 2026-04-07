@@ -82,7 +82,7 @@ export default function LoginForm() {
         <Button
           size="lg"
           type="submit"
-          className="w-full"
+          className="mt-4 w-full"
         >
           {t("auth.login.form.submit")}
         </Button>
