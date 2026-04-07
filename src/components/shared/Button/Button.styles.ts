@@ -23,6 +23,10 @@ export const buttonVariants = cva(
           "border border-border/80 text-foreground " +
           "hover:bg-accent/40 hover:backdrop-blur-sm shadow-md transition-all duration-150 " +
           "focus-visible:ring-2 focus-visible:ring-primary/30",
+        ghost: 
+          "hover:bg-accent/40 hover:backdrop-blur-sm " +
+          "active:bg-accent/80 transition-colors " +
+          "focus-visible:ring-2 focus-visible:ring-primary/30",
         link:
           "text-foreground underline-offset-4 " +
           "hover:underline active:opacity-70",
