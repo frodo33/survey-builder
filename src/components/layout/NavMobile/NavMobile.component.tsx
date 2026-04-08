@@ -1,21 +1,16 @@
 "use client"
-import { useEffect, useState } from "react"
-import { LogOutIcon, MenuIcon  } from "lucide-react"
+import { MenuIcon } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 import { Button } from "@/components/shared/Button/Button.component"
-import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { cn } from "@/lib/utils"
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 
-import { NavItem } from "../AppSidebar/NavItem/NavItem.component"
-import { navConfig } from "../AppSidebar/NavMain/NavMain.config"
+import { navConfig } from "../Navigation/nav.config"
+import { NavHeader } from "../Navigation/NavHeader/NavHeader.component"
+import { NavItem } from "../Navigation/NavItem/NavItem.component"
 
-export const NavMobile = () => {
-  // const { mutate } = useLogout()
-  // const handleLogout = () => mutate()
-  const handleLogout = () => {}
-  useEffect(() => {
-    console.log("SheetContent mounted")
-  }, [])
+export function NavMobile() {
+  const t = useTranslations("nav.header")
 
   return (
     <Sheet>
@@ -33,10 +28,14 @@ export const NavMobile = () => {
         className="bg-sidebar"
       >
         <SheetHeader>
-          <SheetTitle>Your car</SheetTitle>
-          <SheetDescription>
-                  some car
-          </SheetDescription>
+          <div className="sr-only">
+            <SheetTitle>{t("title")}</SheetTitle>
+            <SheetDescription>
+              {t("subtitle")}
+            </SheetDescription>
+          </div>
+
+          <NavHeader />
         </SheetHeader>
 
         <nav className="flex-1 px-4">
@@ -48,16 +47,6 @@ export const NavMobile = () => {
             ))}
           </ul>
         </nav>
-
-        <SheetFooter className="flex-row-reverse">
-          <Button
-            variant="outline"
-            onClick={handleLogout}
-          >
-            <LogOutIcon />
-            Log out
-          </Button>
-        </SheetFooter>
       </SheetContent>
     </Sheet>
   )

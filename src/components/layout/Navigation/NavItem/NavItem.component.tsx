@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 
 import type { NavItemModel } from "../NavMain/NavMain.config"
 
-export function NavItem({ item }: { item: NavItemModel}) {
+export function NavItem({ item, ...props }: { item: NavItemModel}) {
   const t = useTranslations("nav.items")
   const pathname = usePathname()
   const isActive = item.url === "/" 
@@ -20,6 +20,7 @@ export function NavItem({ item }: { item: NavItemModel}) {
         tooltip={t(item.nameKey)}
         isActive={isActive}
         size="lg"
+        {...props}
         className={cn(
           "text-base text-sidebar-accent-foreground font-medium [&_svg]:size-5",
           "hover:bg-sidebar-accent/70 hover:text-sidebar-accent-foreground dark:hover:bg-sidebar-accent/30",

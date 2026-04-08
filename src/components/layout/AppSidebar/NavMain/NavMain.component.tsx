@@ -1,7 +1,7 @@
 import { SidebarGroup, SidebarMenu } from "@/components/ui/sidebar"
 
-import { navConfig } from "./NavMain.config"
-import { NavItem } from "../NavItem/NavItem.component"
+import { navConfig } from "../../Navigation/nav.config"
+import { NavItem } from "../../Navigation/NavItem/NavItem.component"
 
 export function NavMain() {
   return (
