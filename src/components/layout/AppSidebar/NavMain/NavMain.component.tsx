@@ -1,15 +1,13 @@
-import { navMainConfig } from "./NavMain.config"
+import { SidebarGroup, SidebarMenu } from "@/components/ui/sidebar"
+
+import { navConfig } from "./NavMain.config"
 import { NavItem } from "../NavItem/NavItem.component"
-import { SidebarGroup, SidebarGroupLabel, SidebarMenu } from "@/components/ui/sidebar"
 
-export const NavMain = () => {
-  const navItems = navMainConfig()
-
+export function NavMain() {
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Workspace</SidebarGroupLabel>
-      <SidebarMenu>
-        {navItems.map((item) => (
+      <SidebarMenu className="space-y-2">
+        {navConfig.map((item) => (
           <NavItem
             key={item.url}
             item={item}

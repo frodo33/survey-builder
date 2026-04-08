@@ -5,7 +5,9 @@ export const ROUTES = {
     REGISTER: "/register",
   },
   PRIVATE: {
-    DASHBOARD: "/dashboard"
+    DASHBOARD: "/dashboard",
+    SURVEYS: "/surveys",
+    SETTINGS: "/settings"
   }
 } as const
 

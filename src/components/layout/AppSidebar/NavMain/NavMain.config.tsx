@@ -1,25 +1,27 @@
 import { SquareTerminal, type LucideIcon } from "lucide-react"
 
+import { ROUTES } from "@/lib/routes"
+
 export type NavItemModel = {
-  name: string
+  nameKey: string
   url: string
   icon?: LucideIcon
-  items?: Omit<NavItemModel, "items">[]
 }
 
-export const navMainConfig = (): NavItemModel[] => [
+export const navConfig = [
   {
-    name: "Projekty",
-    // url: projectsRoute.to,
-    url: "/",
+    nameKey: "dashboard",
+    url: ROUTES.PRIVATE.DASHBOARD,
     icon: SquareTerminal,
-    items: []
   },
   {
-    name: "Archiwum",
-    // url: archiveRoute.to,
-    url: "/dashboard",
+    nameKey: "surveys",
+    url: ROUTES.PRIVATE.SURVEYS,
     icon: SquareTerminal,
-    items: []
+  },
+  {
+    nameKey: "settings",
+    url: ROUTES.PRIVATE.SETTINGS,
+    icon: SquareTerminal,
   },
 ]

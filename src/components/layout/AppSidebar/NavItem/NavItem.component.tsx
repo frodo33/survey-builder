@@ -1,20 +1,25 @@
+import { useTranslations } from "next-intl"
+
 import { SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
-import { Link } from "@/lib/i18n/navigation"
+import { Link, usePathname } from "@/lib/i18n/navigation"
 import { cn } from "@/lib/utils"
 
 import type { NavItemModel } from "../NavMain/NavMain.config"
 
-export const NavItem = ({ item }: { item: NavItemModel}) => {
-  const isCollapsible = item?.items && item.items.length > 0
-  // const { location: { pathname } } = useRouterState()
-  // const { pathname } = usePath
+export function NavItem({ item }: { item: NavItemModel}) {
+  const t = useTranslations("nav.items")
+  const pathname = usePathname()
+  const isActive = item.url === "/" 
+    ? pathname === "/" 
+    : pathname.startsWith(item.url)
 
   return (
     <SidebarMenuItem>
       <SidebarMenuButton
-        tooltip={item.name}
         asChild
-        size={"lg"}
+        tooltip={t(item.nameKey)}
+        isActive={isActive}
+        size="lg"
         className={cn(
           "text-base text-sidebar-accent-foreground font-medium [&_svg]:size-5",
           "hover:bg-sidebar-accent/70 hover:text-sidebar-accent-foreground dark:hover:bg-sidebar-accent/30",
@@ -23,9 +28,9 @@ export const NavItem = ({ item }: { item: NavItemModel}) => {
       >
         <Link href={item.url} className="flex w-full items-center gap-3">
           <span className="flex aspect-square size-8 items-center justify-center rounded-sm">
-            {item.icon && <item.icon />}
+            {item.icon && <item.icon aria-hidden="true" />}
           </span>
-          <span className="truncate">{item.name}</span>
+          <span className="truncate">{t(item.nameKey)}</span>
         </Link>
       </SidebarMenuButton>
     </SidebarMenuItem>

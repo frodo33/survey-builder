@@ -1,4 +1,11 @@
 {
-  "dashboard": "Dashboard",
-  "settings": "Settings"
+  "header": {
+    "title": "FormFlow",
+    "subtitle": "Creative Forms"
+  },
+  "items": {
+    "dashboard": "Dashboard",
+    "surveys": "Surveys",
+    "settings": "Settings"
+  }
 }

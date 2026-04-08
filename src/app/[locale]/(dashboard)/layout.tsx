@@ -12,12 +12,12 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset className="bg-sidebar mx-auto max-w-7xl">
+      <SidebarInset className="mx-auto max-w-7xl">
         <div className="bg-sidebar absolute flex h-full w-full flex-1 flex-col overflow-y-hidden">
           <AppHeader />
-          <div className="bg-background scrollbar-subtle mx-4 mb-4 flex flex-1 flex-col overflow-scroll rounded-lg p-4">
+          <main className="bg-background scrollbar-subtle mx-4 mb-4 flex flex-1 flex-col overflow-scroll rounded-lg p-4">
             {children}
-          </div>  
+          </main>  
         </div>
       </SidebarInset>
     </SidebarProvider>

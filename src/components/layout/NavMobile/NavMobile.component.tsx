@@ -7,10 +7,9 @@ import { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHe
 import { cn } from "@/lib/utils"
 
 import { NavItem } from "../AppSidebar/NavItem/NavItem.component"
-import { navMainConfig } from "../AppSidebar/NavMain/NavMain.config"
+import { navConfig } from "../AppSidebar/NavMain/NavMain.config"
 
 export const NavMobile = () => {
-  const navItems = navMainConfig()
   // const { mutate } = useLogout()
   // const handleLogout = () => mutate()
   const handleLogout = () => {}
@@ -42,11 +41,9 @@ export const NavMobile = () => {
 
         <nav className="flex-1 px-4">
           <ul>
-            {navItems.map((item) => (
+            {navConfig.map((item) => (
               <SheetClose asChild key={item.url}>
-                <NavItem
-                  item={item}
-                />
+                <NavItem item={item} />
               </SheetClose>
             ))}
           </ul>
