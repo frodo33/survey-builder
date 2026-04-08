@@ -1,0 +1,11 @@
+{
+  "header": {
+    "title": "FormFlow",
+    "subtitle": "Kreatywne formularze"
+  },
+  "items": {
+    "dashboard": "Panel",
+    "surveys": "Ankiety",
+    "settings": "Ustawienia"
+  }
+}
