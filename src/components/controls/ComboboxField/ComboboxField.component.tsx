@@ -103,9 +103,7 @@ export const ComboboxField = <V extends string | number = string, T = unknown>({
                     placeholder={placeholder}
                     aria-invalid={!!error}
                     aria-describedby={helperId}
-                    // className={cn(
-                    //   disabled && disabledClass,
-                    // )}
+                    className={cn(disabled && disabledClass)}
                   />
                 </>
               )}
