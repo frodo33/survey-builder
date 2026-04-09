@@ -36,7 +36,7 @@ export const TextField = <T extends boolean = false>({
         className={cn(
           "[&:has([data-slot=input-group-control]:focus-visible)]:border-ring/70 [&:has([data-slot=input-group-control]:focus-visible)]:ring-0 rounded-md",
           sizeClasses[fieldSize],
-          props.disabled && "bg-muted dark:bg-muted cursor-not-allowed",
+          props.disabled && "has-disabled:bg-input/50 has-disabled:opacity-50 dark:has-disabled:bg-input/80 cursor-not-allowed",
           error && "border-destructive has-[[data-slot][aria-invalid=true]]:ring-1",
           inputGroupClassName
         )}
