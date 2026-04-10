@@ -4,6 +4,8 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 
+import QueryProvider from "@/lib/react-query/query-provider";
+
 const fontSans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -26,9 +28,11 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       className={`${fontSans.variable} ${fontMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <ThemeProvider attribute="class">
-          {children}
-        </ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider attribute="class">
+            {children}
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   );

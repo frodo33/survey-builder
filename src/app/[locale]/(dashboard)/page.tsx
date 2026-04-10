@@ -9,12 +9,12 @@ import { InputGroupAddon } from "@/components/ui/input-group"
 export default function DashboardPage() {
   return (
     <>
-      <Button onClick={() => setTheme("dark")} className="mb-4">
+      {/* <Button onClick={() => setTheme("dark")} className="mb-4">
                   dark mode
       </Button>
       <Button onClick={() => setTheme("light")}>
                   light mode
-      </Button>
+      </Button> */}
 
       <Button onClick={() => console.log("CHUHJCHUCHUCJ")}>
                   light mode

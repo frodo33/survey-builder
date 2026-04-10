@@ -4,6 +4,8 @@ import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { FormProvider, useForm } from "react-hook-form";
 
+import { registerAction } from "@/actions/register";
+import { useRegister } from "@/api/auth/hooks/useRegister/useRegister";
 import { TextFieldController } from "@/components/controls/TextField/TextFieldController.component";
 import { Button } from "@/components/shared/Button/Button.component";
 import { InputGroupAddon } from "@/components/ui/input-group";
@@ -11,6 +13,7 @@ import { InputGroupAddon } from "@/components/ui/input-group";
 export default function RegisterForm() {
   const t = useTranslations()
   const [showPassword, setShowPassword] = useState(false);
+  const { mutate, mutateAsync, isPending, error } = useRegister()
 
   const form = useForm({
     defaultValues: {
@@ -22,9 +25,13 @@ export default function RegisterForm() {
   })
 
   const handleSubmit = form.handleSubmit(async ({ email, password }) => {
-    console.log("values", email, password)
+    mutate({ email, password })
+    try {
+      // await mutateAsync({ email, password })
+    } catch(e) {}
   })
 
+  console.log("ERRRRRRRRRRROR", error)
   return (
 
     <FormProvider {...form}>

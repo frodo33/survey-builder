@@ -4,6 +4,7 @@ import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { FormProvider, useForm } from "react-hook-form";
 
+import { useLogin } from "@/api/auth/hooks/useLogin/useLogin";
 import { TextFieldController } from "@/components/controls/TextField/TextFieldController.component";
 import { Button } from "@/components/shared/Button/Button.component";
 import { InputGroupAddon } from "@/components/ui/input-group";
@@ -13,6 +14,7 @@ import { ROUTES } from "@/lib/routes";
 export default function LoginForm() {
   const t = useTranslations()
   const [showPassword, setShowPassword] = useState(false);
+  const { mutateAsync } = useLogin()
 
   const form = useForm({
     defaultValues: {
@@ -24,6 +26,9 @@ export default function LoginForm() {
 
   const handleSubmit = form.handleSubmit(async ({ email, password }) => {
     console.log("values", email, password)
+    try {
+      await mutateAsync({ email, password })
+    } catch(e) {}
   })
 
   return (

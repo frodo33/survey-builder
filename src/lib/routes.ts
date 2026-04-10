@@ -1,11 +1,10 @@
 export const ROUTES = {
   PUBLIC: {
-    HOME: "/",
     LOGIN: "/login",
     REGISTER: "/register",
   },
   PRIVATE: {
-    DASHBOARD: "/dashboard",
+    DASHBOARD: "/",
     SURVEYS: "/surveys",
     SETTINGS: "/settings"
   }

@@ -4,7 +4,7 @@ import { SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
 import { Link, usePathname } from "@/lib/i18n/navigation"
 import { cn } from "@/lib/utils"
 
-import type { NavItemModel } from "../NavMain/NavMain.config"
+import type { NavItemModel } from "../nav.config"
 
 export function NavItem({ item, ...props }: { item: NavItemModel}) {
   const t = useTranslations("nav.items")
