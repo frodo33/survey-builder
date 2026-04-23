@@ -1,7 +1,7 @@
-import type { Survey } from "../surveys.mock";
+import type { SurveyResponseModel } from "@/api/surveys/surveys.types";
 
 type SurveyCardProps = {
-  survey: Survey;
+  survey: SurveyResponseModel;
 }
 
 export function SurveyCard({ survey }: SurveyCardProps) {
@@ -15,7 +15,7 @@ export function SurveyCard({ survey }: SurveyCardProps) {
           <p className="text-muted-foreground mb-3 line-clamp-2 text-xs">{survey.description}</p>
           <div className="text-muted-foreground flex items-center gap-4 text-xs">
             <span>{survey.questionsCount} questions</span>
-            <span>{survey.responsesCount} responses</span>
+            <span>{survey.answersCount} responses</span>
             <span>Updated {survey.updatedAt}</span>
           </div>
         </div>

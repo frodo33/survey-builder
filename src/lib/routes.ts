@@ -6,6 +6,7 @@ export const ROUTES = {
   PRIVATE: {
     DASHBOARD: "/",
     SURVEYS: "/surveys",
+    SURVEY_NEW: "/surveys/new",
     SETTINGS: "/settings"
   }
 } as const

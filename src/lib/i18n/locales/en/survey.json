@@ -1,0 +1,7 @@
+{
+  "addSurvey": "New survey",
+  "emptyState": {
+    "title": "No surveys yet",
+    "description": "Create your first survey to start collecting responses."
+  }
+}

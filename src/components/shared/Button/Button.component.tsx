@@ -25,10 +25,12 @@ export const Button = ({
       disabled={disabled || loading}
       {...props}
     >
-      <span className="flex items-center justify-center gap-2">
-        {loading && <ButtonSpinner />}
-        {props.children}
-      </span>
+      {asChild ? props.children : (
+        <span className="flex items-center justify-center gap-2">
+          {loading && <ButtonSpinner />}
+          {props.children}
+        </span>
+      )}
     </Comp>
   )
 }
