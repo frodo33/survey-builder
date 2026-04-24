@@ -6,9 +6,10 @@ import { ClipboardList, LayoutGrid, LayoutPanelTop, List, Plus, Search } from "l
 
 import { useSurveys } from "@/api/surveys/hooks/useSurveys/useSurveys";
 import { TextField } from "@/components/controls/TextField/TextField.component";
-import { SurveyCard } from "@/components/features/survey/SurveyCard/SurveyCard.component"
+import { SurveyCard } from "@/components/features/survey/dashboard/SurveyCard/SurveyCard.component"
+import SurveysEmptyState from "@/components/features/survey/dashboard/SurveysEmptyState/SurveysEmptyState.component";
+import { SurveysToolbar } from "@/components/features/survey/dashboard/SurveysToolbar/SurveysToolbar.component";
 import { SURVEYS_MOCK } from "@/components/features/survey/surveys.mock";
-import SurveysEmptyState from "@/components/features/survey/SurveysEmptyState/SurveysEmptyState.component";
 import { Button } from "@/components/shared/Button/Button.component"
 import { Typography } from "@/components/shared/Typography/Typography.component"
 import { typographyVariants } from "@/components/shared/Typography/Typography.styles";
@@ -65,22 +66,6 @@ export default function SurveysPage() {
     s.description?.toLowerCase().includes(search.toLowerCase())
   );
 
-  const { mutate, isPending } = useCreateSurvey()
-
-  // const handleSave = () => {
-  //   // Przykładowe dane z Twojego stanu formularza
-  //   const mockData = {
-  //     title: "Ankieta Satysfakcji 2024",
-  //     description: "Daj nam znać co myślisz",
-  //     questions: [
-  //       { type: "text", text: "Jak masz na imię?", order: 1 },
-  //       { type: "rating", text: "Oceń nas", order: 2 }
-  //     ]
-  //   }
-
-  //   mutate(mockData)
-  // }
-
   return (
     <>
       <div className="flex justify-between">
@@ -94,36 +79,13 @@ export default function SurveysPage() {
         </Button>
       </div>
 
-      <div className="mt-8 flex max-w-sm items-center gap-3">
-        <TextField
-          id="search-survey"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          placeholder="Search surveys..."
-          disabled={true}
-          addons={(
-            <InputGroupAddon align={"inline-start"}><Search /></InputGroupAddon>
-          )}
-        />
-        <div className="border-border flex items-center rounded-lg border">
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            onClick={() => setView("grid")}
-            className={`rounded-l-lg rounded-r-none p-2 transition-colors ${view === "grid" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:text-foreground"}`}
-          >
-            <LayoutGrid className="h-4 w-4" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            onClick={() => setView("list")}
-            className={`rounded-l-none rounded-r-lg p-2 transition-colors ${view === "list" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:text-foreground"}`}
-          >
-            <List className="h-4 w-4" />
-          </Button>
-        </div>
-      </div>
+      <SurveysToolbar
+        search={search}
+        onSearchChange={setSearch}
+        view={view}
+        onViewChange={setView}
+        isDisabled={false}
+      />
 
       {/* <div className={cn(
         "mt-8",
@@ -140,7 +102,7 @@ export default function SurveysPage() {
         ))}
       </div> */}
 
-      <SurveysEmptyState />
+      {/* <SurveysEmptyState /> */}
     </>
   )
 }

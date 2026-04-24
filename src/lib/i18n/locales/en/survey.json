@@ -1,4 +1,14 @@
 {
+  "dashboard": {
+    "toolbar": {
+      "searchPlaceholder": "Search surveys...",
+      "viewMode": "Switch to {mode} view",
+      "modes": {
+        "grid": "grid",
+        "list": "list"
+      }
+    }
+  },
   "addSurvey": "New survey",
   "emptyState": {
     "title": "No surveys yet",

@@ -1,4 +1,14 @@
 {
+  "dashboard": {
+    "toolbar": {
+      "searchPlaceholder": "Szukaj ankiet...",
+      "viewMode": "Przełącz na widok: {mode}",
+      "modes": {
+        "grid": "siatki",
+        "list": "listy"
+      }
+    }
+  },
   "addSurvey": "Nowa ankieta",
   "emptyState": {
     "title": "Brak ankiet",
