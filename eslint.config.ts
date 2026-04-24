@@ -41,6 +41,10 @@ const eslintConfig = defineConfig([
       "no-console": "error",
       "object-shorthand": ["error", "always"],
       "arrow-body-style": ["error", "as-needed"],
+      "react/jsx-curly-brace-presence": [
+        "error", 
+        { "props": "never", "children": "never" }
+      ],
     
       // ===========================
       // TypeScript
