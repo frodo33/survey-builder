@@ -7,6 +7,25 @@
         "grid": "siatki",
         "list": "listy"
       }
+    },
+    "card": {
+      "questionsCount": "{count, plural, one {# pytanie} few {# pytania} many {# pytań} other {# pytań}}",
+      "responsesCount": "{count, plural, one {# odpowiedź} few {# odpowiedzi} many {# odpowiedzi} other {# odpowiedzi}}"
+    },
+    "states": {
+      "error": {
+        "title": "Coś poszło nie tak",
+        "description": "Nie udało nam się pobrać Twoich ankiet. Spróbuj odświeżyć stronę."
+      },
+      "empty": {
+        "title": "Brak ankiet",
+        "description": "Nie masz jeszcze żadnych ankiet. Stwórz swoją pierwszą, aby zacząć zbierać odpowiedzi!",
+        "button": "Stwórz pierwszą ankietę"
+      },
+      "noResults": {
+        "title": "Brak wyników",
+        "description": "Nie znaleźliśmy ankiet pasujących do frazy \"{search}\". Spróbuj wpisać coś innego."
+      }
     }
   },
   "addSurvey": "Nowa ankieta",

@@ -7,6 +7,25 @@
         "grid": "grid",
         "list": "list"
       }
+    },
+    "card": {
+      "questionsCount": "{count, plural, one {# question} other {# questions}}",
+      "responsesCount": "{count, plural, one {# response} other {# responses}}"
+    },
+    "states": {
+      "error": {
+        "title": "Something went wrong",
+        "description": "We couldn't fetch your surveys. Please try refreshing the page."
+      },
+      "empty": {
+        "title": "No surveys yet",
+        "description": "You don't have any surveys yet. Create your first one to start collecting responses!",
+        "button": "Create your first survey"
+      },
+      "noResults": {
+        "title": "No results found",
+        "description": "We couldn't find any surveys matching \"{search}\". Try a different search term."
+      }
     }
   },
   "addSurvey": "New survey",

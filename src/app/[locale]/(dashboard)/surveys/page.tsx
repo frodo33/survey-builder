@@ -2,22 +2,15 @@
 
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query"
-import { ClipboardList, LayoutGrid, LayoutPanelTop, List, Plus, Search } from "lucide-react";
+import { Plus } from "lucide-react";
 
-import { useSurveys } from "@/api/surveys/hooks/useSurveys/useSurveys";
-import { TextField } from "@/components/controls/TextField/TextField.component";
-import { SurveyCard } from "@/components/features/survey/dashboard/SurveyCard/SurveyCard.component"
-import SurveysEmptyState from "@/components/features/survey/dashboard/SurveysEmptyState/SurveysEmptyState.component";
+import type { ViewVariant } from "@/components/features/survey/dashboard/dashboard.types";
+import { SurveysList } from "@/components/features/survey/dashboard/SurveysList/SurveysList.component";
 import { SurveysToolbar } from "@/components/features/survey/dashboard/SurveysToolbar/SurveysToolbar.component";
-import { SURVEYS_MOCK } from "@/components/features/survey/surveys.mock";
 import { Button } from "@/components/shared/Button/Button.component"
 import { Typography } from "@/components/shared/Typography/Typography.component"
-import { typographyVariants } from "@/components/shared/Typography/Typography.styles";
-import { InputGroupAddon } from "@/components/ui/input-group";
 import { createClient } from "@/lib/supabase/client";
-import { cn } from "@/lib/utils";
 
-// Definicja typu danych wejściowych (zgodna z tym, co przyjmuje Edge Function)
 type SurveyPayload = {
   title: string
   description: string
@@ -39,15 +32,13 @@ export const useCreateSurvey = () => {
       })
 
       if (error) {
-        // Supabase functions zwracają błędy w specyficzny sposób
         throw new Error(error.message || "Failed to create survey")
       }
 
-      return data // Zwróci { id: "uuid-ankiety" }
+      return data
     },
     onSuccess: (data) => {
       console.log("Ankieta stworzona! ID:", data.id)
-      // Tutaj możesz np. przekierować usera: router.push(`/editor/${data.id}`)
     },
     onError: (error) => {
       console.error("Błąd tworzenia ankiety:", error.message)
@@ -56,22 +47,22 @@ export const useCreateSurvey = () => {
 }
 
 export default function SurveysPage() {
-  const [view, setView] = useState<"grid" | "list">("grid");
+  const [view, setView] = useState<ViewVariant>("grid");
   const [search, setSearch] = useState("");
-  const { data: surveys, isLoading, isError, isFetching } = useSurveys()
-  const surveysTotal = surveys?.length && surveys?.length - 1
+  // const { data: surveys, isLoading, isError, isFetching } = useSurveys()
+  // const surveysTotal = surveys?.length && surveys?.length - 1
 
-  const filtered = surveys?.filter(s =>
-    s.title.toLowerCase().includes(search.toLowerCase()) ||
-    s.description?.toLowerCase().includes(search.toLowerCase())
-  );
+  // const filtered = surveys?.filter(s =>
+  //   s.title.toLowerCase().includes(search.toLowerCase()) ||
+  //   s.description?.toLowerCase().includes(search.toLowerCase())
+  // );
 
   return (
     <>
       <div className="flex justify-between">
         <div>
           <Typography variant="h1">My surveys</Typography>
-          <Typography variant="p" className="text-muted-foreground mt-1">{surveysTotal} surveys total</Typography>
+          {/* <Typography variant="p" className="text-muted-foreground mt-1">{surveysTotal} surveys total</Typography> */}
         </div>
         <Button size="lg">
           <Plus />
@@ -87,22 +78,10 @@ export default function SurveysPage() {
         isDisabled={false}
       />
 
-      {/* <div className={cn(
-        "mt-8",
-        view === "grid"
-          ? "grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"
-          : "space-y-3"
-      
-      )}>
-        {filtered?.map(survey => (
-          <SurveyCard
-            key={survey.id}
-            survey={survey}
-          />
-        ))}
-      </div> */}
-
-      {/* <SurveysEmptyState /> */}
+      <SurveysList
+        search={search}
+        view={view}
+      />
     </>
   )
 }
