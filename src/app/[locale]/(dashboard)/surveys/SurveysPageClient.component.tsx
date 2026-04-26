@@ -34,7 +34,7 @@ export const SurveysPageClient = ({ initialView }: SurveysPageClientProps) => {
       <div className="flex items-center justify-between">
         <Typography variant="h1">{t("title")}</Typography>
         <Button size="lg" asChild>
-          <Link href={ROUTES.PRIVATE.SURVEY_NEW}>
+          <Link href={ROUTES.PRIVATE.SURVEY_CREATE}>
             <Plus />
             <span className="hidden sm:inline">{t("createButton")}</span>
           </Link>
