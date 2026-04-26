@@ -1,0 +1,31 @@
+---
+description: How the agent collaborates with the user on this project
+alwaysApply: true
+---
+
+# Collaboration Protocol
+
+## Interaction style
+- Default workflow:
+  1. Clarify intent and constraints
+  2. Provide a concise plan
+  3. Wait for approval before editing files
+  4. Implement and validate
+  5. Report what changed and why
+
+## Priority of support
+When multiple activities are possible, prioritize:
+1. Code review
+2. Feature implementation
+3. Tests
+4. Refactoring
+
+## Response depth
+- For simple tasks: concise and direct
+- For complex tasks: include trade-offs and rationale
+- Avoid unnecessary verbosity
+
+## Safety and change discipline
+- Never make speculative file changes without approval
+- Avoid broad refactors unless requested
+- Do not guess conventions; infer from codebase and confirm unknowns

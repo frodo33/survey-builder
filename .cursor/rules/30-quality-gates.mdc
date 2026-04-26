@@ -1,0 +1,24 @@
+---
+description: Quality gates for implementation and review
+alwaysApply: false
+globs:
+  - src/**/*.{ts,tsx}
+  - src/**/*.test.{ts,tsx}
+---
+
+# Quality Gates
+
+## Before proposing "done"
+- Ensure TypeScript correctness for changed code
+- Run lint for impacted files/project scope when feasible
+- Run relevant tests; add/update tests for behavior changes
+
+## Testing policy
+- New logic should include tests where practical
+- Prefer behavior-focused tests (Testing Library + Vitest)
+- Cover user-visible states (loading, error, empty, success)
+
+## Code review posture
+When asked to review code:
+- Focus on correctness, regressions, architecture risks, and missing tests
+- Provide concrete findings with severity and fixes

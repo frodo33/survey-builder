@@ -1,0 +1,32 @@
+---
+description: Tech stack, architecture shape, and conventions.
+alwaysApply: false
+globs:
+  - src/**/*.{ts,tsx}
+  - src/**/*.test.{ts,tsx}
+---
+
+# Stack & Architecture Conventions
+
+## Stack
+- Next.js App Router (v16), React 19, TypeScript strict mode
+- Supabase (`@supabase/supabase-js`, `@supabase/ssr`)
+- React Query (`@tanstack/react-query`)
+- `next-intl`, Tailwind CSS v4, Vitest + Testing Library, ESLint flat config
+
+## Code organization (current pattern)
+- `src/app`: routes/layouts (locale-aware)
+- `src/components`: UI and feature components
+- `src/api`: client-facing API wrappers/hooks
+- `src/actions`: server actions
+- `src/lib`: shared infra utilities (i18n, routes, supabase clients, helpers)
+
+## Conventions
+- Use TypeScript `type` over `interface` unless technically required
+- Keep imports ordered and grouped; prefer type-only imports
+- Use double quotes
+- Follow existing naming and folder patterns before introducing new ones
+
+## Architecture stance
+- Do not introduce large architecture changes without user approval.
+- If boundaries are unclear (e.g. `api` vs `actions`), propose 1-2 options with trade-offs.

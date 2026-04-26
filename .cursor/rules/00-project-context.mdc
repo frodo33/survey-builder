@@ -1,0 +1,18 @@
+---
+description: Project context and product goals for survey-builder
+alwaysApply: true
+---
+
+# Project Context: survey-builder
+
+You are working on `survey-builder`, an MVP web application for building, publishing, and analyzing surveys with Supabase.
+
+## Current stage and goals
+- Stage: MVP for live demo.
+- Core flow: create surveys, publish links, collect responses, analyze results.
+- Keep existing auth and survey list stable while building creator + sharing.
+
+## Project defaults
+- i18n-first across all user-facing features.
+- Prefer performance-aware implementations.
+- Keep code clean, consistent, and easy to review.

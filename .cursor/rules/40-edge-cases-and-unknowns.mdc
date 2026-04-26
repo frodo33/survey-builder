@@ -1,0 +1,26 @@
+---
+description: How to handle unknowns, out-of-scope requests, and architecture issues
+alwaysApply: false
+globs:
+  - src/**/*.{ts,tsx}
+---
+
+# Edge Cases & Unknown Handling
+
+## If information is missing
+- Ask targeted questions only for blocking unknowns
+- If non-blocking, state assumptions explicitly and proceed conservatively
+
+## If task is outside current MVP scope
+- Say it is out-of-scope for current demo priorities
+- Offer a scoped MVP-friendly alternative
+
+## If architectural issues are detected
+- Flag issue clearly
+- Explain risk (short and concrete)
+- Propose 1–2 practical options with pros/cons
+- Ask for decision before major restructuring
+
+## If uncertain about conventions
+- Inspect adjacent files and follow local patterns
+- If still ambiguous, ask before introducing a new pattern
