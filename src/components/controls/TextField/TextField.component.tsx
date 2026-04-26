@@ -4,14 +4,14 @@ import { Field, FieldDescription, FieldError, FieldLabel } from "@/components/sh
 import { InputGroup, InputGroupInput, InputGroupTextarea } from "@/components/ui/input-group"
 import { cn } from "@/lib/utils"
 
-import type { TextFieldOwnProps, TextFieldProps } from "./TextField.types"
+import type { TextFieldProps, TextFieldSharedPropsKeys } from "./TextField.types"
 
 const sizeClasses: Record<string, string> = {
   sm: "h-8 text-base",
   md: "h-10 text-base",
 }
 
-export const TextField = <T extends boolean = false>({
+export const TextField = ({
   id,
   label,
   placeholder,
@@ -25,7 +25,7 @@ export const TextField = <T extends boolean = false>({
   textarea,
   fieldSize = "md",
   ...props
-}: TextFieldProps<T>) => {
+}: TextFieldProps) => {
   const helperId = error || helperText ? `${id}-helper` : undefined
   
   return (
@@ -49,7 +49,7 @@ export const TextField = <T extends boolean = false>({
             onChange={onChange}
             aria-invalid={!!error}
             aria-describedby={helperId}
-            {...(props as Omit<ComponentProps<"textarea">, keyof TextFieldOwnProps>)}
+            {...(props as Omit<ComponentProps<"textarea">, TextFieldSharedPropsKeys>)}
           />
         ) : (
           <InputGroupInput
@@ -59,7 +59,7 @@ export const TextField = <T extends boolean = false>({
             onChange={onChange}
             aria-invalid={!!error}
             aria-describedby={helperId}
-            {...(props as Omit<ComponentProps<"input">, keyof TextFieldOwnProps>)}
+            {...(props as Omit<ComponentProps<"input">, TextFieldSharedPropsKeys>)}
           />
         )}
         {addons}

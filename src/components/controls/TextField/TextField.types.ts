@@ -2,7 +2,7 @@ import type { ChangeEvent, ComponentProps, ReactNode } from "react"
 
 export type TextFieldSize = "sm" | "md"
 
-export type TextFieldOwnProps = {
+type TextFieldSharedProps = {
   id: string
   label?: string
   placeholder?: string
@@ -13,9 +13,13 @@ export type TextFieldOwnProps = {
   className?: string
   inputGroupClassName?: string
   addons?: ReactNode
-  textarea?: boolean
   fieldSize?: TextFieldSize
 }
 
-export type TextFieldProps<T extends boolean = false> = TextFieldOwnProps &
-  (T extends true ? ComponentProps<"textarea"> : ComponentProps<"input">) & { textarea?: T }
+export type TextFieldSharedPropsKeys = keyof TextFieldSharedProps
+
+export type TextFieldProps = TextFieldSharedProps &
+  Omit<ComponentProps<"input">, keyof TextFieldSharedProps | "value" | "onChange" | "ref"> &
+  Omit<ComponentProps<"textarea">, keyof TextFieldSharedProps | "value" | "onChange" | "ref"> & {
+    textarea?: boolean
+  }
