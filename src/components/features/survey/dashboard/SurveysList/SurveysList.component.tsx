@@ -58,7 +58,7 @@ export const SurveysList = ({ search, view }: SurveysListProps) => {
         className="mt-8"
         asChild
       >
-        <Link href={ROUTES.PRIVATE.SURVEY_NEW}>
+        <Link href={ROUTES.PRIVATE.SURVEY_CREATE}>
           <Plus />
           {t("empty.button")}
         </Link>

@@ -98,7 +98,7 @@ describe("SurveysList", () => {
 
     expect(screen.getByText("empty.title")).toBeInTheDocument();
     expect(screen.getByText("empty.description")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "empty.button" })).toHaveAttribute("href", ROUTES.PRIVATE.SURVEY_NEW);
+    expect(screen.getByRole("link", { name: "empty.button" })).toHaveAttribute("href", ROUTES.PRIVATE.SURVEY_CREATE);
   });
 
   it("renders no-results state when search query does not match any survey", () => {
