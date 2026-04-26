@@ -1,7 +1,8 @@
 import { cookies } from "next/headers";
 
 import type { ViewVariant } from "@/components/features/survey/dashboard/dashboard.types";
-import { SurveysPageClient } from "@/components/features/survey/dashboard/SurveysPageClient.component";
+
+import { SurveysPageClient } from "./SurveysPageClient.component";
 
 const VIEW_COOKIE_NAME = "surveys_view";
 

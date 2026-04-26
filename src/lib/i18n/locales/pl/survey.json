@@ -1,5 +1,9 @@
 {
   "dashboard": {
+    "header": {
+      "title": "Moje ankiety",
+      "createButton": "Nowa ankieta"
+    },
     "toolbar": {
       "searchPlaceholder": "Szukaj ankiet...",
       "viewMode": "Przełącz na widok: {mode}",

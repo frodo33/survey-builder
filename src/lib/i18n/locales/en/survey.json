@@ -1,5 +1,9 @@
 {
   "dashboard": {
+    "header": {
+      "title": "My surveys",
+      "createButton": "New survey"
+    },
     "toolbar": {
       "searchPlaceholder": "Search surveys...",
       "viewMode": "Switch to {mode} view",
