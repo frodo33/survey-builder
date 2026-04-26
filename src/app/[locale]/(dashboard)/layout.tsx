@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import { cookies } from "next/headers"
 
 import { AppHeader } from "@/components/layout/AppHeader/AppHeader.component"
 import { AppSidebar } from "@/components/layout/AppSidebar/AppSidebar.component"
@@ -8,9 +9,15 @@ type DashboardLayoutProps = {
   children: ReactNode
 }
 
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
+const SIDEBAR_COOKIE_NAME = "sidebar_state"
+
+export default async function DashboardLayout({ children }: DashboardLayoutProps) {
+  const cookieStore = await cookies()
+  const sidebarCookie = cookieStore.get(SIDEBAR_COOKIE_NAME)?.value
+  const defaultSidebarOpen = sidebarCookie === "true" ? true : sidebarCookie === "false" ? false : true
+
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={defaultSidebarOpen}>
       <AppSidebar />
       <SidebarInset className="mx-auto max-w-7xl">
         <div className="bg-sidebar absolute flex h-full w-full flex-1 flex-col overflow-y-hidden">
